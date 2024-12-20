@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Support Funds</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2C9D8A;  /* Soft Teal */
+            --secondary-color: #F6E2B3;  /* Warm Beige */
+            --accent-color: #F79C42;  /* Soft Coral */
+            --background-color: #FFFFFF;  /* White */
+            --text-color: #333333;  /* Charcoal Gray */
+            --footer-color: #1E2A30;  /* Deep Blue Gray */
+        }
+
+        body {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .navbar {
+            background-color: var(--primary-color);
+        }
+
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #F77B2D;  /* Darker Coral */
+        }
+
+        .card {
+            background-color: var(--primary-color);
+            border: none;
+        }
+
+        footer {
+            background-color: var(--footer-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .card-body h5 {
+            color: var(--primary-color);
+        }
+
+        .table th, .table td {
+            color: var(--text-color);
+        }
+
+        .table-dark {
+            background-color: var(--primary-color);
+        }
+
+        .table-dark th {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Support Funds</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="borrower.html">Borrower Portal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="funder.html">Funder Portal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="mentor.html">Mentor Portal</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin.html">Admin Portal</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Portal -->
+    <section class="py-5">
+        <div class="container">
+            <h1 class="text-center mb-4">Admin Portal</h1>
+            <p class="text-center">Welcome to the Admin Portal. Manage users, monitor activities, and ensure smooth platform operations.</p>
+            
+            <div class="row mt-4">
+                <!-- Loan Management -->
+                <div class="col-md-6">
+                    <h4>Loan Management</h4>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5>Pending Loan Applications</h5>
+                            <p>Review and approve/reject loan applications submitted by borrowers.</p>
+                            <a href="#" class="btn btn-primary">Manage Applications</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="col-md-6">
+                    <h4>System Notifications</h4>
+                    <div class="card mb-3">
+                        <div class="card-body">
+                            <h5>Send Notifications</h5>
+                            <p>Send announcements or updates to all platform users.</p>
+                            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notificationModal">Send Notification</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Management -->
+            <div class="mt-5">
+                <h4>User Management</h4>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>#</th>
+                                <th>User Name</th>
+                                <th>Role</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>John Doe</td>
+                                <td>Borrower</td>
+                                <td>Active</td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning">Suspend</button>
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Jane Smith</td>
+                                <td>Funder</td>
+                                <td>Pending</td>
+                                <td>
+                                    <button class="btn btn-sm btn-success">Approve</button>
+                                    <button class="btn btn-sm btn-danger">Delete</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Notification Modal -->
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notificationModalLabel">Send Notification</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="notificationTitle" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="notificationTitle" placeholder="Enter notification title">
+                        </div>
+                        <div class="mb-3">
+                            <label for="notificationMessage" class="form-label">Message</label>
+                            <textarea class="form-control" id="notificationMessage" rows="3" placeholder="Enter your message"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Support Funds. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
